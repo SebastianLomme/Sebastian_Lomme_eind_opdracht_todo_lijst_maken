@@ -1,7 +1,5 @@
 const newTask = document.getElementById("new-task")
 const taskInput = document.getElementById("task-input")
-const deleteBtn = document.getElementById("delete-btn")
-const addBtn = document.getElementById("add-btn")
 const list = document.getElementById("toDoList")
 
 
@@ -34,7 +32,6 @@ if(isChecked) {
 }
 
 listLabel.addEventListener("change", () => {
-
         putData({description: listLabel.value, done:isChecked },id)
     })
 
@@ -68,7 +65,7 @@ const printToDom = () => {
     })
 }
 
-printToDom()
+
 
 newTask.addEventListener("submit", (e)=> {
     addDom(e)
@@ -83,8 +80,9 @@ const addDom = async (e) => {
 }
 
 const deleteDom = async (id) => {
-    console.log("click")
     list.innerHTML = ""
     await deleteData(id)
     printToDom()
 }
+
+printToDom()
