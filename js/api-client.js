@@ -26,8 +26,6 @@ catch {
     }
 } 
 
-
-
 async function postData (object) {
 try {    const data = {object}
     const response = await fetch("http://localhost:3000", {

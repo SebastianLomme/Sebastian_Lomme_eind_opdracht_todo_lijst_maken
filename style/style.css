@@ -41,6 +41,11 @@ ul {
   padding: 10px;
 }
 
+.list-item .checked {
+  color: red;
+  text-decoration: line-through;
+}
+
 .icon {
   color: red;
   -ms-grid-column-align: end;

@@ -27,29 +27,24 @@ listItem.classList.add("list-item")
 list.appendChild(listItem)
 
 
-document.addEventListener("click", (e) => {
-    if (e.target && e.target.classList[1]== id) {
-        deleteData(id)
-        list.innerHTML = ""
-        printToDom()
-    }
+button.addEventListener("click", (e) => {
+    deleteDom(id)
 })
 
-document.addEventListener("change", (e) => {
-    if (e.target && e.target.id == id)
-    {
+listBox.addEventListener("change", (e) => {
         if(e.target.checked) {
             getDataId(id).then(data => {
                 putData({description: data.object.description, done: true},id)
+                listLabel.classList.add("checked")
 
 })
         } else {
             getDataId(id).then(data => {
                 putData({description: data.object.description, done: false},id)
-
+                listLabel.classList.remove("checked")
 })
         }
-    }
+    
 } )
 }
 
@@ -64,9 +59,20 @@ const printToDom = () => {
 printToDom()
 
 newTask.addEventListener("submit", (e)=> {
-    list.innerHTML = ""
+    addDom(e)
+})
+
+const addDom = async (e) => {
     e.preventDefault()
-    postData({description: taskInput.value, done: false})
+    list.innerHTML = ""
+    await postData({description: taskInput.value, done: false})
     taskInput.value = ""
     printToDom()
-})
+}
+
+const deleteDom = async (id) => {
+    console.log("click")
+    list.innerHTML = ""
+    await deleteData(id)
+    printToDom()
+}
