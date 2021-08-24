@@ -27,11 +27,15 @@ ul {
     display: flex;
     align-items: center;
 
+    input{
+        border: none;
+    }
+
     div {
         width: 100%;
     }
 
-    label {
+    input {
         padding: 10px;
     }
 

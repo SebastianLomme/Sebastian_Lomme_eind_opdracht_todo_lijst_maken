@@ -33,11 +33,15 @@ ul {
           align-items: center;
 }
 
+.list-item input {
+  border: none;
+}
+
 .list-item div {
   width: 100%;
 }
 
-.list-item label {
+.list-item input {
   padding: 10px;
 }
 

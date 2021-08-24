@@ -7,7 +7,7 @@ const list = document.getElementById("toDoList")
 
 const makeListItem = (text, done, id) => {
 const listItem = document.createElement("li")
-const listLabel = document.createElement("label")
+const listLabel = document.createElement("input")
 const div = document.createElement("div")
 const button = document.createElement("button")
 button.classList.add("icon")
@@ -17,7 +17,7 @@ listBox.type = "checkbox"
 listBox.name = "task"
 listBox.id = id
 listBox.checked = done
-listLabel.innerText = text
+listLabel.value = text
 div.appendChild(listBox)
 div.appendChild(listLabel)
 button.classList.add(id)
@@ -25,10 +25,18 @@ listItem.appendChild(div)
 listItem.appendChild(button)
 listItem.classList.add("list-item")
 list.appendChild(listItem)
+const isChecked = done
 
-if(done) {
+if(isChecked) {
     listLabel.classList.add("checked")
+} else {
+    listLabel.classList.remove("checked")
 }
+
+listLabel.addEventListener("change", () => {
+
+        putData({description: listLabel.value, done:isChecked },id)
+    })
 
 
 button.addEventListener("click", (e) => {
