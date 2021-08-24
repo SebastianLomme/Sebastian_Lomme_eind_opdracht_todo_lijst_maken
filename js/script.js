@@ -26,6 +26,10 @@ listItem.appendChild(button)
 listItem.classList.add("list-item")
 list.appendChild(listItem)
 
+if(done) {
+    listLabel.classList.add("checked")
+}
+
 
 button.addEventListener("click", (e) => {
     deleteDom(id)
