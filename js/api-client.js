@@ -1,5 +1,7 @@
+const apiUrl = "http://localhost:3000/"
+
 async function getData () {
-try {   const response = await fetch("http://localhost:3000", {
+try {   const response = await fetch(apiUrl, {
         method: "GET",
         headers: {
             'Content-Type': 'application/json'
@@ -13,7 +15,7 @@ catch {
 } 
 
 async function getDataId (id) {
-try {   const response = await fetch(`http://localhost:3000/${id}`, {
+try {   const response = await fetch(`${apiUrl}${id}`, {
         method: "GET",
         headers: {
             'Content-Type': 'application/json'
@@ -28,7 +30,7 @@ catch {
 
 async function postData (object) {
 try {    const data = {object}
-    const response = await fetch("http://localhost:3000", {
+    const response = await fetch(apiUrl, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -44,7 +46,7 @@ catch {
 
 async function putData (object, id) {
 try {  const data = {object}
-    const response = await fetch(`http://localhost:3000/${id}`, {
+    const response = await fetch(`${apiUrl}${id}`, {
         method: "PUT",
         headers: {
             'Content-Type': 'application/json'
@@ -59,7 +61,7 @@ catch {
 }
 
 async function deleteData (id) {
-try {    const response = await fetch(`http://localhost:3000/${id}`,{
+try {    await fetch(`${apiUrl}${id}`,{
         method: "DELETE"
 })}
 catch {
